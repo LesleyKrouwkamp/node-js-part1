@@ -1,9 +1,1 @@
-{
-    "fullname": "bob",
-    "age": 18,
-    "dateOfVisit": "8/11/2019",
-    "timeOfVisit": "12:45",
-    "comments": "work related",
-    "nameOfThePersonWhoAssistedTheVisitor": "Thembi"
-
-}
+{"fullName":"Alice","age":35,"dateOfVisit":"29/07/2019","timeOfVisit":"09:16","comments":"Work","nameOfThePersonWhoAssistedTheVisitor":"Tsepho"}

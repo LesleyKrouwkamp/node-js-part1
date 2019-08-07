@@ -1,11 +1,10 @@
-'use strict';
-const fs = require('fs');
-
-class Visitor{
-    constructor(fullname, age, dateOfVisit, timeOfVisit, comments, 
+// 'use strict';
+let id = 0;
+module.exports = class Visitor{
+    constructor(fullName, age, dateOfVisit, timeOfVisit, comments, 
         nameOfThePersonWhoAssistedTheVisitor){
 
-        this.fullname = fullname;
+        this.fullName = fullName;
         this.age = age;
         this.dateOfVisit = dateOfVisit;
         this.timeOfVisit = timeOfVisit;
@@ -14,29 +13,69 @@ class Visitor{
 
         }
 
-        save(id){
-            let data = fs.readFileSync(`visitor_${id}.json`);
-            let visitor = JSON.parse(data);
-            console.log(visitor);
+    save() {          
+            let vistor = new Visitor(
+            this.fullName,
+            this.age,
+            this.dateOfVisit,
+            this.timeOfVisit,
+            this.comments,
+            this.nameOfThePersonWhoAssistedTheVisitor
+       );
+
+       let data = JSON.stringify(vistor)
+       let fs = require('fs');          
+       id++;          
+       fs.writeFile(`visitor_${id}.json`, data, err => {
+            if (err) {
+                 throw (Error + 'Cannot save this file');
+            } else {
+                 console.log('File succesfully saved');
+            }
+       });
+
+       return 'File succesfully saved';
+    }
+
+    load(id) {
+       
+        var fs = require("fs")
+        if(id <= 0) {
+            console.log("File does not exist");
         }
-
-        load(id){
-            
-            console.log(`visitor_${id}.json`);
-
-            
-        }
-
-}
-    let alice = new Visitor();
-    let bob = new Visitor();
-    let charlie = new Visitor();
-    alice.save(1);
-    bob.save(2);
-    charlie.save(3);
-
-    alice.load(1);
-    alice.load(2);
-    alice.load(3);
+        var path = "visitor_" + id + ".json";
+        var data =  fs.readFileSync(path);
+        let visitorData = JSON.parse(data);
+        return (visitorData);
+    }    
+}    
     
     
+    //     let visitor1 = new Visitor("Alice",
+    //     35,
+    //     "29/07/2019",
+    //     "09:16",
+    //     "Work",
+    //     "Tsepho");
+    //      visitor1.save();    
+        
+    //     let visitor2 = new Visitor("Bob",
+    //     21,
+    //     "29/07/2019",
+    //     "15:09",
+    //     "work related",
+    //     "Tshepo");
+    //      visitor2.save();    
+        
+    //     let visitor3 = new Visitor("Charlie",
+    //     21,
+    //     "30/08/2019",
+    //     "12:45",
+    //     "meeting",
+    //     "Lesley");
+    //      visitor3.save();
+
+    //     //visitor1.load(1);
+    //     //visitor2.load(2);
+    //     //visitor3.load(3);
+            

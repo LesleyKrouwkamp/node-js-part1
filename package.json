@@ -1,0 +1,22 @@
+{
+  "name": "node.js",
+  "version": "1.0.0",
+  "description": "node file",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine visitorSpec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LesleyKrouwkamp/node-js-part1.git"
+  },
+  "author": "Lesley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LesleyKrouwkamp/node-js-part1/issues"
+  },
+  "homepage": "https://github.com/LesleyKrouwkamp/node-js-part1#readme",
+  "devDependencies": {
+    "jasmine": "^3.4.0"
+  }
+}
